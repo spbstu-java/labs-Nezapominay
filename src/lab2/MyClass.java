@@ -13,13 +13,13 @@ public class MyClass {
         System.out.println("Второй публичный метод с параметрами: " + a + " " + b);
     }
 
-    public void methodPrivate1(int a, int b)
+    private void methodPrivate1(int a, int b)
     {
         System.out.println("Первый приватный метод с параметрами: " + a + " " + b);
     }
 
     @TestAnnotation(2)
-    public void methodPrivate2(int a, int b)
+    private void methodPrivate2(int a, double b)
     {
         System.out.println("Второй приватный метод с параметрами: " + a + " " + b);
     }
@@ -31,7 +31,7 @@ public class MyClass {
     }
 
     @TestAnnotation(5)
-    protected void methodProtected2(int a, int b)
+    protected void methodProtected2(boolean a, int b)
     {
         System.out.println("Второй защищённый метод с параметрами: " + a + " " + b);
     }

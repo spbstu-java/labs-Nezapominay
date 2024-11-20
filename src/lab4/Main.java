@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 3, 4, 5, 6);
         List<String> words = new ArrayList<>();
         words.add("Hello");
         words.add("Home");
@@ -20,11 +20,11 @@ public class Main {
         System.out.println(average);
 
         System.out.println("Стрим приводящий в верхний регистр:");
-        Methods.streamToUpper();
+        Methods.streamToUpper(words);
 
         System.out.println("Стрим возвращающий " +
                 "уникальные числа и возводящий их в квадрат:");
-        Methods.streamUniqueSquare();
+        Methods.streamUniqueSquare(numbers);
 
         System.out.println("Стрим выводящий последний элемент или исключение:");
         System.out.println(Methods.streamLastElement(words));

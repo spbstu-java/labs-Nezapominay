@@ -22,8 +22,8 @@ public class Methods {
                 .orElseThrow(() -> new NoSuchElementException("Ни одного элемента не найдено"));
     }
 
-    public static void streamToUpper() {
-        Stream.of("hello", "world", "Cat", "HOUSE")
+    public static void streamToUpper(List<String> words) {
+                words.stream()
                 .map(str -> str.toUpperCase())
                 .map(str -> str = "_new_" + str)
                 .forEach(System.out::println);
@@ -35,10 +35,11 @@ public class Methods {
 
     }
 
-    public static void streamUniqueSquare() {
-        Stream.of(1, 2, 3, 2, 4, 2, 5, 2)
-                .distinct()
-                .map(x -> x*x)
+    public static void streamUniqueSquare(List<Integer> numbers) {
+        numbers.stream()
+                .filter(n -> Collections.frequency(numbers, n) == 1)
+                .map(n -> n * n)
+                .toList()
                 .forEach(System.out::println);
     }
 }

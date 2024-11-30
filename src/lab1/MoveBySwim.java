@@ -7,4 +7,8 @@ public class MoveBySwim implements MovementStrategy{
     public void move() {
         System.out.println("Плывёт");
     }
+
+    public String getDescription() {
+        return "Плывёт";
+    }
 }

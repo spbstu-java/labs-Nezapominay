@@ -20,11 +20,11 @@ public class Main {
         System.out.println(average);
 
         System.out.println("Стрим приводящий в верхний регистр:");
-        Methods.streamToUpper(words);
+        System.out.println(Methods.streamToUpper(words));
 
         System.out.println("Стрим возвращающий " +
                 "уникальные числа и возводящий их в квадрат:");
-        Methods.streamUniqueSquare(numbers);
+        System.out.println(Methods.streamUniqueSquare(numbers));
 
         System.out.println("Стрим выводящий последний элемент или исключение:");
         System.out.println(Methods.streamLastElement(words));

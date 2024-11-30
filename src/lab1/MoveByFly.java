@@ -6,4 +6,8 @@ public class MoveByFly implements MovementStrategy{
     public void move() {
         System.out.println("Летит");
     }
+
+    public String getDescription() {
+        return "Летит";
+    }
 }

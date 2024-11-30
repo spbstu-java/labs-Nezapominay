@@ -16,17 +16,18 @@ public class Methods {
                 .reduce(0, Integer::sum);
     }
 
-    public static <T> T streamLastElement(Collection<T> collection) {
+    public static <T> String streamLastElement(Collection<T> collection) {
         return collection.stream()
                 .reduce((x, y) -> y)
+                .map(Object::toString)
                 .orElseThrow(() -> new NoSuchElementException("Ни одного элемента не найдено"));
     }
 
-    public static void streamToUpper(List<String> words) {
-                words.stream()
+    public static String streamToUpper(List<String> words) {
+                return words.stream()
                 .map(str -> str.toUpperCase())
                 .map(str -> str = "_new_" + str)
-                .forEach(System.out::println);
+                .collect(Collectors.joining("\n"));
     }
 
     public static double streamAverage(List<Integer> numbers) {
@@ -35,11 +36,11 @@ public class Methods {
 
     }
 
-    public static void streamUniqueSquare(List<Integer> numbers) {
-        numbers.stream()
+    public static String streamUniqueSquare(List<Integer> numbers) {
+        return numbers.stream()
                 .filter(n -> Collections.frequency(numbers, n) == 1)
                 .map(n -> n * n)
-                .toList()
-                .forEach(System.out::println);
+                .map(String::valueOf)
+                .collect(Collectors.joining("\n"));
     }
 }

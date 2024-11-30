@@ -11,8 +11,10 @@ import java.util.Map;
 
 public class Translator {
     private Map<String, String> dictionary = new LinkedHashMap<>();
+    private boolean isDictionaryLoaded = false;
 
     public void loadDictionary(String filePath) throws InvalidFileFormatException, FileReadException {
+        dictionary.clear();
         try {
             List<String> lines = Files.readAllLines(Paths.get(filePath));
             for (String line : lines) {
@@ -22,6 +24,7 @@ public class Translator {
                 }
                 dictionary.put(parts[0].trim().toLowerCase(), parts[1].trim());
             }
+            isDictionaryLoaded = true;
         } catch (NoSuchFileException e) {
             throw new FileReadException("Файл не найден: " + filePath);
         } catch (IOException e) {
@@ -29,7 +32,15 @@ public class Translator {
         }
     }
 
+    public boolean isDictionaryLoaded() {
+        return isDictionaryLoaded;
+    }
+
     public String translate(String text) {
+        if (!isDictionaryLoaded) {
+            return "";
+        }
+
         String[] words = text.split("\\s+");
         StringBuilder result = new StringBuilder();
 
